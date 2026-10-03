@@ -1,4 +1,4 @@
-const CACHE='cm-v3-shell-3';
+const CACHE='cm-v3-shell-4';
 const FILES=['./','index.html','style.css','app.js','api.js','store.js','model.js','sync.js','import.js','manifest.webmanifest','icon.svg'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES))));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('cm-v3-shell-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
